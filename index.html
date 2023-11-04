@@ -1,0 +1,542 @@
+<html>
+    <head>
+        <title>Log In</title>
+        <link rel="icon" href="Attendance.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            html{
+                font-size: 10px;
+            }
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                /* background-color: pink;   */
+            }
+            .d1{
+                /* border: 2px solid black; */
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 80%;
+                /* height: 40rem; */
+            }
+            .d2{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-direction: row-reverse;
+                width: 100%;
+                height: 100%;
+                background-color: rgb(253, 129, 129);
+                border-radius: 6px;
+                margin: 5%;
+            }
+            .d3{
+                background-color: rgb(221, 220, 220);
+                border-top-left-radius: 5px;
+                border-bottom-left-radius: 5px;
+                width: 50%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            .d3 h1{
+                /* position: relative; */
+                font-size: 4rem;
+                text-align: center;
+                font-weight: 900;
+            }
+            .d4{
+                margin-top: 5%;
+                width: 100%;
+            }
+            table{
+                width: 100%;
+                text-align: center;
+                border-collapse: collapse;
+            }
+            table td{
+                position: relative;
+                height: 6rem;
+            }
+            #tab2,#tab3{
+                margin-top: -1rem;
+                margin-bottom: 1rem;
+            }
+            #tab2 td,#tab3 td{
+                height: 5rem;
+                /* border: solid 1px red; */
+            }
+            table td input,table td select{
+                width: 80%;
+                height: 4rem;
+                padding-left: 3rem;
+                border: none;
+                border-radius: 0.5rem;
+                background-color: rgb(255, 255, 255);
+            }
+            #tab2 input,#tab2 select,#tab3 input,#tab3 select{
+                height: 3rem;
+            }
+            table td i{
+                position: absolute;
+                left: 12%;
+                top: 38%;
+            }
+            #tab2 td i,#tab3 td i{
+                font-size: 1rem;
+                top: 42%;
+            }
+            .d6{
+                color: gray;
+            }
+            .b1{
+                border-radius: 50px;
+                padding: 1rem 3rem;
+                background-color: orangered;
+                color: white;
+                font-weight: bolder;
+                border: none;
+                cursor: pointer;
+            }
+            .d7{
+                font-weight: bolder;
+                width: 50%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;  
+                justify-content: center;
+                align-items: center;
+                row-gap: 5rem;
+            }
+            .d7 h1{
+                color: white;
+                text-align: center;
+            }
+            .d7 p{
+                font-size: 2rem;
+                color: white;
+                text-align: center;
+                line-height: 1.5rem;
+                word-spacing: 4px;
+                /* margin-top: 8rem; */
+            }
+            .d7 .b1{
+                border: solid 1px white;
+                /* margin-top: 8rem; */
+                letter-spacing: 0.1rem;
+                cursor: pointer;
+            }
+            #stu,#emp{
+                width: 1.5rem;
+            }
+            @media (max-width:998px) {
+                html{
+                    font-size:55%;
+                }
+            }
+            @media (max-width:768px) {
+                html{
+                    font-size:45%;
+                }
+                table i{
+                    margin-left: -1%;
+                }
+            }
+            @media (max-width:600px) {
+                html{
+                    font-size:35%;
+                }
+                table{
+                    font-size: 2rem;
+                }
+                table input{
+                    font-size: 1.5rem;
+                }
+                table .b1{
+                    font-size: 2rem;
+                }
+                .d7 .b1{
+                    font-size: 1.5rem;
+                    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                }
+                .d7 p{
+                    font-size: 1rem;
+                }
+            }
+            span:hover{
+                cursor: pointer;
+                font-size: 2rem;
+                transition: 0.3s;
+                color: rgb(105, 105, 240);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="d1">
+            <div class="d2">
+                <div class="d7">
+                    <h1>Attendence Management <br>Software</h1>
+                    <p>New User</p>
+                    <button class="b1" id="auto">Sign Up</button>
+                </div>
+                <div class="d3">
+                    <h1>Login</h1>
+                    <div class="d4">
+                        <table id="tab1">
+                            <tr>
+                                <td>
+                                    <i class="fa fa-envelope"></i>
+                                    <input type="email" id="email" placeholder="Email">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <i class="fa fa-user"></i>
+                                    <input type="password" id="pas" placeholder="Password">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span>Forget your password?</span></td>
+                            </tr>
+                            <tr>
+                                <td align="center">
+                                    <button class="b1" id="log">LOG IN</button>
+                                </td>
+                            </tr>
+                        </table>
+                        <table id="tab2" hidden>
+                            <tr>
+                                <td>
+                                    <i class="fa fa-user"></i>
+                                    <input type="text" id="name" placeholder="Username">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <i class="fa fa-envelope"></i>
+                                    <input type="email" id="email" placeholder="Email">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="display: flex;justify-content: space-evenly;align-items: center;">
+                                    <input type="radio" id="stu" name="a" value="Student"><label for="stu" style="margin-left: -10%;font-size: 1.5rem;">Student</label>
+                                    <input type="radio" id="emp" name="a" value="Employee"><label for="emp" style="margin-left: -10%;font-size: 1.5rem;">Employee</label>
+                                </td>
+                            </tr>
+                            <tr id="student" hidden>
+                                <td>
+                                    <i class="fa fa-school"></i>
+                                    <input type="text" id="class" placeholder="Class" style="width: 30%;">
+                                    <i class="fa fa-arrow-down-1-9" style="left: 42%;"></i>
+                                    <input type="text" placeholder="Roll No." id="roll" style="width: 50%;">
+                                </td>
+                            </tr>
+                            <tr id="student1" hidden>
+                                <td>
+                                    <i class="fa fa-address-book"></i>
+                                    <input type="text" id="cont" placeholder="Contact No." maxlength="10" minlength="10">
+                                </td>
+                            </tr>  
+                            <tr id="employee" hidden>
+                                <td>
+                                    <i class="fa fa-person-chalkboard"></i>
+                                    <select name="" id="fac" style="width: 40%;">
+                                        <option>Junior Teacher</option>
+                                        <option>Senior Teacher</option>
+                                    </select>
+                                    <i class="fa fa-address-book" style="left: 53%;"></i>
+                                    <input type="text" id="emcont" placeholder="Contact No." maxlength="10" minlength="10" style="width: 40%;">
+                                </td>
+                            </tr>   
+                            <tr>
+                                <td>
+                                    <i class="fa fa-question"></i>
+                                    <select id="secq">
+                                        <option>What is Your Favourite Subjects?</option>
+                                        <option>What is your date of birth?</option>
+                                        <option>What was your favorite school teacher’s name?</option>
+                                        <option>What is your favorite movie?</option>
+                                        <option>What was your first car?</option>
+                                        <option>What is your astrological sign?</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <i class="fa fa-text-height"></i>
+                                    <input type="text" id="ans"  placeholder="Answer">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <i class="fa fa-lock"></i>
+                                    <input type="password" id="pas" placeholder="Password">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <i class="fa fa-lock"></i>
+                                    <input type="password" id="cpas" placeholder="Confirm Password">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center">
+                                    <button class="b1" id="sign">Sign Up</button>
+                                </td>
+                            </tr>
+                        </table>
+                        <table id="tab3" hidden>
+                            <tr>
+                                <td>
+                                    <i class="fa fa-envelope"></i>
+                                    <input type="email" id="email"  placeholder="Email">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <i class="fa fa-question"></i>
+                                    <select id="secq">
+                                        <option>What is Your Favourite Subjects?</option>
+                                        <option>What is your date of birth?</option>
+                                        <option>What was your favorite school teacher’s name?</option>
+                                        <option>What is your favorite movie?</option>
+                                        <option>What was your first car?</option>
+                                        <option>What is your astrological sign?</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <i class="fa fa-text-height"></i>
+                                    <input type="text" id="ans" placeholder="Answer">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <i class="fa fa-lock"></i>
+                                    <input type="password" id="pas" placeholder="Password">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <i class="fa fa-lock"></i>
+                                    <input type="password" id="cpas" placeholder="Confirm Password">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center">
+                                    <button class="b1" id="forgot">Create</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script>
+            var flag=true;
+            $(document).ready(function(){
+                $("#tab1").on("keyup", function (event) {
+                    if (event.keyCode === 13) {
+                        $("#log").click();
+                    }
+                });
+                $("#tab2").on("keyup", function (event) {
+                    if (event.keyCode === 13) {
+                        $("#sign").click();
+                    }
+                });
+                $("#tab3").on("keyup", function (event) {
+                    if (event.keyCode === 13) {
+                        $("#forgot").click();
+                    }
+                });
+                $('#auto').click(function(){
+                    if($('.d7 .b1').text().trim()=='Sign Up'){
+                        $('.d3').css({'translate':'101% 0','transition':'0.5s','border-top-right-radius':'5px',
+                        'border-bottom-right-radius':'5px','border-top-left-radius':'0px',
+                        'border-bottom-left-radius':'0px'});
+                        $('.d7').css({'translate':'-100% 0','transition':'0.5s'});
+                        $('.d7 .b1').text('Sign In');
+                        $('.d7 p').text('Existing User');
+                        $('.d3 .b1').text('Sign Up');
+                        $('.d3 h1').text('Sign Up');
+                        $('.d3 h1').css({'font-size':'2rem'});
+                        $('#tab2').attr('hidden',false);
+                        $('#tab1').attr('hidden',true);
+                        $('#tab3').attr('hidden',true);
+                    }
+                    else {
+                        $('.d3').css({'translate':'0 0','transition':'0.5s','border-top-right-radius':'0px',
+                        'border-bottom-right-radius':'0px','border-top-left-radius':'5px',
+                        'border-bottom-left-radius':'5px'});
+                        $('.d7').css({'translate':'0 0','transition':'0.5s'});
+                        $('.d7 .b1').text('Sign Up');
+                        $('.d7 p').text('New User');
+                        $('.d3 .b1').text('Log In');
+                        $('.d3 h1').text('Log In');
+                        $('.d3 h1').css({'font-size':'4rem'});
+                        $('#tab2').attr('hidden',true);
+                        $('#tab3').attr('hidden',true);
+                        $('#tab1').attr('hidden',false);
+                    }
+                })
+                $('span').click(function(){
+                    $('#tab3').attr('hidden',false);
+                    $('#tab1').attr('hidden',true);
+                    $('.d3 h1').text('Forgot Password');
+                    $('.d3 h1').css({'font-size':'2rem'});
+                    $('.d3 .b1').text('Create');
+                })
+                $('#stu').click(function(){
+                    $('#student,#student1').attr('hidden',false);
+                    $('#employee').attr('hidden',true);
+                })
+                $('#emp').click(function(){
+                    $('#student,#student1').attr('hidden',true);
+                    $('#employee').attr('hidden',false);
+                })
+                function fl(iid){
+                    if($(iid).val().trim()=='')
+                        flag=false;
+                }
+                $('#sign').click(function(){
+                    flag=true;
+                    if($('#stu').prop('checked')==false && $('#emp').prop('checked')==false){
+                        flag=false;
+                        alert('Please Select any Student/Employee!!')
+                    }
+                    else if($('#tab2 #pas').val().trim()!=$('#tab2 #cpas').val().trim()){
+                        alert("Please enter same password in confirm password!!");
+                        flag=false;
+                    }
+                    else{
+                        fl('#tab2 #name');
+                        fl('#tab2 #email');
+                        fl('#tab2 #ans');
+                        fl('#tab2 #pas');
+                        fl('#tab2 #cpas');
+                        if($('input[name="a"]:checked').val()=='Student'){
+                            fl('#tab2 #class');
+                            fl('#tab2 #roll');
+                            fl('#tab2 #cont');
+                        }
+                        else if($('input[name="a"]:checked').val()=='Employee'){
+                            fl('#tab2 #emcont');
+                            fl('#tab2 #fac');
+                        }
+                        if(flag==false)
+                            alert("Please fill all field!!")
+                    }
+                    if(flag){
+                        if(confirm('Do You want to create your account!!')){
+                            $.ajax({
+                                method:'post',
+                                url:'attendence.py',
+                                data:{
+                                    cond:'entry',
+                                    t1:$('#tab2 #name').val().trim(),
+                                    t2:$('#tab2 #email').val().trim(),
+                                    t3:$('input[name="a"]:checked').val(),
+                                    t4:$('#tab2 #class').val().trim(),
+                                    t5:$('#tab2 #roll').val().trim(),
+                                    t6:$('#tab2 #fac').val().trim(),
+                                    t7:$('#tab2 #cont').val().trim(),
+                                    t8:$('#tab2 #emcont').val().trim(),
+                                    t9:$('#tab2 #secq').val().trim(),
+                                    t10:$('#tab2 #ans').val().trim(),
+                                    t11:$('#tab2 #pas').val().trim()
+                                },
+                                success:function(data){
+                                    data=data.split('&&')
+                                    alert(data[0]);
+                                    if(data[1]==0)
+                                        location.reload();
+                                }
+                            })
+                        }
+                    }
+                })
+                $('#log').click(function(){
+                    flag=true;
+                    fl('#tab1 #email');
+                    fl('#tab1 #pas');
+                    if(flag){
+                        $.ajax({
+                            method:'post',
+                            url:'attendence.py',
+                            data:{
+                                cond:'login',
+                                t1:$('#tab1 #email').val().trim(),
+                                t2:$('#tab1 #pas').val().trim()
+                            },
+                            success:function(data){
+                                if(data!=0){
+                                    data=data.split('&&');
+                                    window.location='Dashboard.html';
+                                    sessionStorage.setItem('uname',data[0].trim());
+                                    sessionStorage.setItem('email',data[1].trim());
+                                    sessionStorage.setItem('utype',data[2].trim());
+                                }
+                                else{
+                                    alert('Invalid Username or Password!!')
+                                }
+                            }
+                        })
+                    }
+                    else{
+                        alert('Please Fill all field!!')
+                    }
+                })
+                $('#forgot').click(function(){
+                    flag=true;
+                    if($('#tab3 #pas').val().trim()!=$('#tab3 #cpas').val().trim()){
+                        alert("Please enter same password in confirm password!!");
+                        flag=false;
+                    }
+                    else{
+                        fl('#tab3 #email');
+                        fl('#tab3 #ans');
+                        fl('#tab3 #pas');
+                        fl('#tab3 #cpas');
+                        if(flag==false){
+                            alert("Please fill all field!!")
+                        }
+                    }
+                    if(flag){
+                        if(confirm("Are you sure want to update password!!")){
+                            $.ajax({
+                                method:'post',
+                                url:'attendence.py',
+                                data:{
+                                    cond:'forgot',
+                                    t1:$('#tab3 #email').val().trim(),
+                                    t2:$('#tab3 #pas').val().trim(),
+                                    t3:$('#tab3 #ans').val().trim(),
+                                    t4:$('#tab3 #secq').val().trim()
+                                },
+                                success:function(data){
+                                    data=data.split('&&')
+                                    alert(data[0])
+                                    if(data[1]==0)
+                                        location.reload();
+                                }
+                            })
+                        }
+                    }
+                })
+            })
+        </script>
+    </body>
+</html>
