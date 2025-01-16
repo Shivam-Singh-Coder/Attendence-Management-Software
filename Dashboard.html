@@ -1,77 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Dashbord</title>
-        <link rel="icon" href="Attendance.png">
-        <style>
-        *{
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashbord</title>
+    <link rel="icon" href="Attendance.jpg">
+    <style>
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        } 
-        html{
+            font-family: Garamond;
+        }
+
+        html {
             font-size: 10px;
         }
-        body{
-            background-color: #EBF3E8;
+
+        body {
+            background-color: white;
         }
-        .main{
+
+        .main {
             position: relative;
             width: 100%;
             height: 100vh;
         }
-        .nv{
-            height: 8rem;
+
+        .nv {
+            height: 6.8rem;
             width: 100%;
             /* border: 2px solid black; */
-            background-color:#86A789;
+            background-color: #00A9FF;
             box-shadow: 5px 5px 5px 5px;
         }
-        .pop{
+
+        .pop {
             position: absolute;
             height: 10rem;
             width: 15rem;
             right: 10rem;
             top: 6.5rem;
             background-color: aliceblue;
-            visibility: hidden;
-            z-index: 1;
-            border-radius: 1rem;  
+            /* visibility: hidden; */
+            display: none;
+            z-index: 1000;
+            overflow: hidden;
+            border-radius: 1rem;
         }
-        .pop div{
+
+        .pop div {
             width: 100%;
             height: 50%;
             font-size: 2rem;
             text-align: center;
             padding: 1rem;
+            overflow: hidden;
+            z-index: 1000;
             border-bottom: 1px solid black;
             cursor: pointer;
         }
-        .pop div:hover{
+
+        .pop div:hover {
             font-size: 2.5rem;
             color: blue;
             transition: 0.3s;
         }
-        .s1{
+
+        .s1 {
             font-size: 4rem;
             font-weight: bolder;
             position: absolute;
             top: 1.5rem;
             left: 2rem;
-            letter-spacing: 1px;           
+            letter-spacing: 1px;
         }
-        .name{
+
+        .name {
             position: absolute;
             font-size: 2.5rem;
             top: 2.5rem;
             font-weight: bold;
             right: 9rem;
+            z-index: 1000;
             cursor: pointer;
         }
-        .box1{
+
+        .box1 {
             width: 10%;
             height: 10%;
             text-align: center;
@@ -79,52 +99,88 @@
             right: 12rem;
             top: 25rem;
         }
-        .box1 button{
+
+        .box1 button {
             border-radius: 10px;
             padding: 1rem 1.5rem;
             font-size: 1.5rem;
             background-color: #a3c8a6;
             border: none;
         }
-        
-        .t1{
+
+        .t1 {
             width: 98%;
             margin: auto;
             margin-top: 2%;
-            text-align: center;border: solid 1px gray;padding: 1rem;
+            text-align: center;
+            border: solid 1px gray;
+            padding: 1rem;
             border-radius: 0.5rem;
+            /* display: none; */
         }
-        caption{
+
+        caption {
             font-size: 2.5rem;
             color: blue;
             margin-bottom: 1rem;
         }
-        .t1 td{
+
+        .caption {
+            position: relative;
+            color: blue;
+            width: 98%;
+            margin: auto;
+            font-weight: 100;
+            margin-top: 2rem;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .caption label{
+            transition: 0.3s;
+            font-size: 3rem;
+        }
+
+
+        a {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .t1 td {
             font-size: 2rem;
             width: 25%;
         }
-        .t1 input{
+
+        .t1 input {
             font-size: 2rem;
             width: 70%;
             height: 60%;
             border-radius: 0.5rem;
             border: solid 1px blue;
-            padding:1rem;
+            padding: 1rem;
         }
-        input[type="checkbox"]{
+
+        input[type="checkbox"] {
             height: 50%;
             width: 50%;
+            cursor: pointer;
         }
-        .t1 button{
+
+        .t1 button {
             border-radius: 10px;
             padding: 1rem 1.5rem;
             font-size: 1.5rem;
+            font-weight: bold;
             background-color: #0dbeeb;
             border: none;
             color: white;
             cursor: pointer;
         }
-        .report{
+
+        .report {
             margin: auto;
             margin-top: 2rem;
             width: 98%;
@@ -134,7 +190,8 @@
             /* top: 8rem; */
             /* height: 35%; */
         }
-        .show{
+
+        .show {
             /* height: 80%; */
             width: 90%;
             font-size: 2rem;
@@ -142,131 +199,773 @@
             /* border: 2px solid black; */
             border-collapse: collapse;
         }
-        .show th{
+
+        .show th {
             background-color: rgb(101, 204, 245);
             color: white;
         }
-        .show tr, .show td, .show th{
+
+        .show tr,
+        .show td,
+        .show th {
             border: 1px solid black;
             text-align: center;
             padding: 0.2rem;
         }
-        </style>
-    </head>
-    <body>
-        <div class="main">
-            <div class="nv" style="color: white;">
-                <span class="s1">Dashboard</span>
-                <span class="name">&nbsp;<i class="fa-solid fa-user"></i> &nbsp;Pranav Raj &nbsp;&nbsp;<i class="fa-solid fa-caret-down fa-sm" style="color: rgb(252, 18, 57);" id="ns"></i></span>
-                <div class="pop" style="color: black;">
-                    <div onclick="location.href='Profile_Page.html'">Profile</div>
-                    <div id="logout">Logout</div>
-                </div>
+
+        section {
+            position: absolute;
+            height: 120vh;
+            width: 100%;
+            background-color: white;
+            display: none;
+
+        }
+
+        main {
+            width: 100%;
+            /* height: 80%; */
+            margin: auto;
+            background-color: white;
+        }
+
+        main h2 {
+            text-align: center;
+            margin-top: 3rem;
+            font-size: 2.5rem;
+        }
+
+        .t2 {
+            width: 90%;
+        }
+
+        .t2 td {
+            position: relative;
+            font-size: 2rem;
+            width: 30%;
+            height: 8rem;
+            /* border: solid 1px red; */
+        }
+
+        .t2 td input[type='date'],
+        select {
+            font-size: 2rem;
+            width: 90%;
+            height: 4rem;
+        }
+        .t2 label{
+            position: absolute;
+            top: 10%;
+            left: 2rem;
+            background-color: white;
+        }
+        #desc_l{
+            top:-6%;
+        }
+        .t2 textarea{
+            width: 97%;
+            height:20rem;
+            font-size : 2rem;
+            padding:1rem;
+            resize: none;
+        }
+        /* background-color: rgb(101, 204, 245); color:white; outline:none; */
+        #graph {
+            border: solid 1px gray;
+            width: 50%;
+            margin: auto;
+            margin-top: 2rem;
+            border-radius: 0.5rem;
+        }
+
+        #graph canvas {
+            margin: auto;
+        }
+
+        .side {
+            position: absolute;
+            right: 0;
+            width: 75%;
+        }
+
+        aside {
+            position: absolute;
+            background-color: #89CFF3;
+            min-height: 120vh;
+            height: 100%;
+            text-align: center;
+        }
+
+        aside h1 {
+            font-size: 2rem;
+            line-height: 5rem;
+            padding: 0.5rem 2rem;
+        }
+        aside h1:first-child{
+            background-color: #0c4a69;
+            box-shadow: 2px 2px 2px 2px;
+            color: white;
+            border-radius: 0.5rem;
+        }
+        .t5h:hover{
+            background-color: white;
+            box-shadow: none;
+        }
+        .leavereport {
+            position: absolute;
+            /* border: 2px solid black; */
+            width: 100%;
+            min-height: 120vh;
+            top: 2rem;
+            display: none;
+        }
+
+        .t3 {
+            margin: auto;
+            width: 90%;
+        }
+
+        .t3 th {
+            background-color: #427D9D;
+            color:white;
+        }
+
+        .t3,
+        .t3 th {
+            border-collapse: collapse;
+        }
+
+        .t3 td,
+        th {
+            text-align: center;
+            font-size: 1.8rem;
+            height: 4rem;
+            border: solid 1px gray;
+        }
+
+        .section3 {
+            position: absolute;
+            width: 100%;
+            min-height: 120vh;
+            z-index: 999;
+            background-color: white;
+            display: none;
+        }
+        .report_leave{
+            position: relative;
+            width: 90%; 
+            margin: auto;
+            border-radius: 0.5rem;
+            /* height: 30rem; */
+            max-height: 50rem;
+            overflow: auto;
+            padding: 1rem;
+        }
+        .runtable{
+            width: 98%;
+            border-collapse: collapse;
+            margin: auto;
+        }
+        .runtable td,.runtable th{
+            border: solid 1px gray;
+            font-size: 2rem;
+        }
+        .runtable td{
+            font-size: 1.5rem;
+            text-align: center;
+            padding: 0.5rem;
+        }
+        .t4 {
+            text-align: center;
+            margin: auto;
+            width: 90%;
+        }
+
+        .t4 td {
+            position: relative;
+            font-size: 1.8rem;
+            /* width: 30%; */
+            width: 25%;
+            height: 8rem;
+        }
+
+        .t4 td input[type='date'],
+        .t4 td select {
+            width: 80%;
+            height: 4rem;
+            font-size: 2rem;
+        }
+        .t4 label{
+            position: absolute;
+            top: 8%;
+            left: 5rem;
+            background-color: white;
+        }
+        .t4 td input[type='button'],.t2 td input[type='button']{
+            padding: 0.5rem 1.5rem;
+            background-color: rgb(101, 204, 245);
+            color:white;
+            outline:none;
+            border: none;
+            font-size: 2rem;
+            border-radius: 0.5rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .leave_req {
+            position: absolute;
+            width: 100%;
+            min-height: 120vh;
+            top: 0;
+            background-color: rgba(0,0 , 0, 0.2);
+        }
+
+        .leavepop {
+            box-shadow: 5px 5px 10px rgba(0, 100, 255, 0.5);
+            width: 90%;
+            height: 50rem;
+            background-color: white;
+            border-radius: 15px;
+            position: absolute;
+            top: 2rem;
+            left: 5%;
+            overflow: auto;
+        }
+
+        .t5 {
+            width: 98%;
+            margin: auto;
+        }
+
+        .t5 th,
+        .t5 {
+            border-collapse: collapse;
+        }
+
+        .t5 th,
+        .t5 td {
+            border: solid 1px gainsboro;
+            text-align: center;
+            padding: 0.5rem 0;
+        }
+
+        .t5 td {
+            font-size: 1.5rem;
+        }
+        .cut {
+            position: absolute;
+            top: 0.5rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            border-radius: 5px;
+            background-color: rgba(255, 100, 100, 1);
+            padding: 0.5rem;
+            color: white;
+            cursor: pointer;
+            outline: none;
+            border: none;
+        }
+        #report2:hover,.show1:hover{
+            scale: 1.3;
+            cursor: pointer;
+            transition: 0.3s;
+            color: green;
+        }
+        .unicode{
+            color: green;
+            font-size: 2.5rem;
+            cursor: pointer;
+        }
+        .unicode2{
+            color: red;
+            font-size: 2.5rem;
+            cursor: pointer;
+        }
+        .unicode:hover,.unicode2:hover{
+            transition: 0.3s;
+            font-size: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="nv" style="color: white;">
+            <span class="s1">Dashboard</span>
+            <span class="name">&nbsp;<i class="fa-solid fa-user"></i> &nbsp;<label
+                    style="cursor: pointer;">Nikhil</label> &nbsp;&nbsp;<i class="fa-solid fa-caret-down fa-sm"
+                    style="color: rgb(133, 128, 129);" id="ns"></i></span>
+            <div class="pop" style="color: black;">
+                <div onclick="location.href='Profile_Page.html'">Profile</div>
+                <div id="logout" onclick="location.href='index.html'">Logout</div>
             </div>
-            <table class="t1">
-                <caption>Mark Attendence</caption>
+        </div>
+        <div class="section3">
+            <table class="t4">
+                <caption style="margin-top: 2%;font-weight: 600;text-decoration: underline;">Leave Report</caption>
                 <tr>
                     <td>
-                        <input type="datetime-local" id="date">
-                    </td>
-                    <td> 
-                        <input type="checkbox">
+                        <Label>Name</Label>
+                        <select name="Employee" id="" style="text-align: center;">
+                            <option selected disabled>--Select Any Name--</option>
+                        </select>
                     </td>
                     <td>
-                        <button class="submit">Submit</button>
-                        <button class="view" style="margin-left: 5%;">View Report</button>
+                        <label for="">Email</label>
+                        <select name="Name" id="" style="text-align: center;">
+                            <option selected disabled>--Select Any Email--</option>
+                        </select>
+                    </td>
+                    <td><label for="">From</label>
+                        <input type="date" class="from">
+                    </td>
+                    <td>
+                        <label for="">To</label>
+                        <input type="date" class="to">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" colspan="4">
+                        <input type="button" value="&#10004;&nbsp;Submit" class="leave_submit">
+                        <input type="button" value="&#10006;&nbsp;Cancel" id="cancel" style="background-color: red;margin-left: 5%;">
+                        <input type="button" onclick="allleaverecord('all')" value="&#x21B6;&nbsp;All" style="background-color: rgb(17, 0, 255);margin-left: 5%;">
                     </td>
                 </tr>
             </table>
-            <div class="report"></div>
+            <div class="report_leave"></div>
+        </div>
+        <aside>
+            <h1 style="cursor: pointer;" class="mark">Mark Your Attendence</h1><hr>
+            <h1 style="cursor: pointer;" class="leave">Apply for Leave</h1><hr>
+            <h1 style="cursor: pointer;" class="l_report">Leave Report</h1>
+        </aside>
+        <div class="side">
+            <section style="background-color: white;margin-left: -9%;width: 109%;">
+                <main>
+                    <table class="t2" style="margin: auto;">
+                        <caption style="margin-top: 2%;font-weight: 600;text-decoration: underline;">Application For Leave</caption>
+                        <tr>
+                            <td>
+                                <label for="Select">Leave Type</label>
+                                <select name="select" id="">
+                                    <option>Casual Leave</option>
+                                    <option>Half Leave</option>
+                                    <option>One Day Leave</option>
+                                    <option>Sick Leave</option>
+                                    <option>Marriage Leave</option>
+                                    <option>Religious Leave</option>
+                                    <option>Medical Leave</option>
+                                </select>
+                            </td>
+                            <td>
+                                <label for="">From</label>
+                                <input type="date" class="date from">
+                            </td>
+                            <td>
+                                <label for="">To</label>
+                                <input type="date" class="date to">
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <label for="" id="desc_l">Leave Description :- </label>
+                                <textarea name="" id="" placeholder="Write the description of leave......."></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" align="center">
+                                <input type="button" value="&#10004;&nbsp;Submit" class="app_submit">
+                                <!-- <input type="button" value="&#10006;&nbsp;Cancel" class="cancel" style="background-color: red;margin-left: 5%;"> -->
+                            </td>
+                        </tr>
+                    </table>
+                </main>
+            </section>
+            <div class="caption">
+                <label id="report2">View Leave Report</label> 
+                <label class="show1">Leave Request</label>
+            </div>
+            <table class="t1" style="margin-left: -4%;">
+                <caption>Mark Attendence</caption>
+                <tr>
+                    <td>
+                        <input type="datetime-local" class="dtime" disabled>
+                    </td>
+                    <td style="width: 8%;">
+                        <input type="checkbox" id="check"><label for="check" style="margin-left: -16%;cursor: pointer;">Tick Here</label>
+                    </td>
+                    <td>
+                        <button class="submit">&#10004;&nbsp;Submit</button>
+                        <button class="view" style="margin-left: 5%;">&#x21B6;&nbsp;Complete Report</button>
+                    </td>
+                </tr>
+            </table>
+            <div class="report" style="margin-left: -4%;"></div>
+            <div id="graph" >
+                <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+            </div>
+            <div class="leavereport" style="background-color: white;margin-left: -9%;width: 109%;"></div>
+            <div class="leave_req"></div>
+        </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script>
-            var uname,utype,email,cd;
-            $(document).ready(function(){
-                uname=sessionStorage.getItem('uname');
-                email=sessionStorage.getItem('email');
-                utype=sessionStorage.getItem('utype');
-                dat();
-                $('.name').html('&nbsp;<i class="fa-solid fa-user"></i> &nbsp;'+uname+'&nbsp;&nbsp;<i class="fa-solid fa-caret-down fa-sm" style="color: rgb(252, 18, 57);" id="ns"></i>');
-                record();                
-                $('.name').click(function(){
-                    
-                    if($('.pop').css('visibility')=='hidden'){
-                        $('.pop').css({'visibility':'visible'})
+            var uname, utype, email, cd,flag=true;
+            $(document).ready(function () {
+                $('.name').click(function () {
+                    if ($('.pop').css('display') == 'none') {
+                        $('.pop').css({ 'display': 'block' })
                     }
-                    else{
-                        $('.pop').css({'visibility':'hidden'})
+                    else {
+                        $('.pop').css({ 'display': 'none' })
                     }
                 })
-                $('.view').click(function(){
-                    record();
+                uname = sessionStorage.getItem('uname');
+                email = sessionStorage.getItem('email');
+                utype = sessionStorage.getItem('utype');
+                if (utype == 'Administrator') {
+                    $('.t1').css('display', 'none');
+                    leave_record()
+                    $.ajax({
+                        method: 'post',
+                        url: 'attendence.py',
+                        data: {},
+                        success: function (data) {
+                            data = data.split('     ');
+                            $('.report').html(data[0]);
+                            $('.report').css({'border':'solid 1px gray','margin-left':'0','margin':'auto'});
+                            if (data[1] != undefined) {
+                                var j = data[1].split('&&');
+                                chart('Student', 'Employee', j[0], j[1]);
+                            }
+                        }
+                    })
+                    $('aside').css('display', 'none')
+                    $('.side').css('width', '100%')
+                    $('#report2').click(function () {
+                        $('.section3').css({ 'display': 'block' });
+                        $.ajax({
+                            method:'post',
+                            url : 'attendence.py',
+                            data:{
+                                cond:'view_report_combo'
+                            },
+                            success : function(data){
+                                var j=data.split('&&');
+                                $('.t4 select[name="Employee"]').html(j[0]);
+                                $('.t4 select[name="Name"]').html(j[1]);
+                            }
+                        });
+                    })
+                    $('#cancel').click(function () {
+                        $('.section3').css({ 'display': 'none' })
+                    })
+                    $(document).on('click','.cut',function () {
+                        if ($('.leave_req').css('display') == 'none') {
+                            $('.leave_req').css({ 'display': 'block' })
+                        }
+                        else {
+                            $('.leave_req').css({ 'display': 'none' })
+                        }
+                    })
+                    $('.show1').click(function () {
+                        if ($('.leave_req').css('display') == 'none') {
+                            $('.leave_req').css({ 'display': 'block' })
+                            leave_record();
+                        }
+                        else {
+                            $('.leave_req').css({ 'display': 'none' })
+                        }
+                    })
+                    $(document).on('click','.unicode',function(){
+                        if(confirm('Do You want to Approve this leave request!!')){
+                            var sn=$(this).closest('tr').children('td').text().split('   ')[1];
+                            $.ajax({
+                                method:'post',
+                                url : 'attendence.py',
+                                data:{
+                                    cond:'update_leave',
+                                    t1:sn,
+                                    t2:'Approve'
+                                },
+                                success : function(data){
+                                    data=data.split('&&')
+                                    alert(data[0])
+                                    if(data[1]==0){
+                                        $('.t5 tbody tr').each(function(){
+                                            if($(this).find('#sn').text().trim()==sn)
+                                                $(this).remove();
+                                        });
+                                    }
+                                }
+                            });
+                        }
+                    })
+                    $(document).on('click','.unicode2',function(){
+                        if(confirm('Do You want to Reject this leave request!!')){
+                            var sn=$(this).closest('tr').children('td').text().split('   ')[1];
+                            $.ajax({
+                                method:'post',
+                                url : 'attendence.py',
+                                data:{
+                                    cond:'update_leave',
+                                    t1:sn,
+                                    t2:'Reject'
+                                },
+                                success : function(data){
+                                    data=data.split('&&')
+                                    alert(data[0])
+                                    if(data[1]==0){
+                                        $('.t5 tbody tr').each(function(){
+                                            if($(this).find('#sn').text().trim()==sn)
+                                                $(this).remove();
+                                        });
+                                    }
+                                }
+                            });
+                        }
+                    })
+                }
+                else {
+                    $('.leave_req').css({ 'display': 'none' })
+                    $('.section3').css({ 'display': 'none' })
+                    $('.caption').css({ 'display': 'none' })
+                    $('.c1').css('display', 'none')
+                    $('.leave').click(function () {
+                        $('section').css({ 'display': 'block' })
+                        $('.leavereport').css({ 'display': 'none' })
+                    })
+                    $('.cancel').click(function () {
+                        $('section').css({ 'display': 'none' })
+
+                    });
+                    $(".t2").on("keyup", function (event) {
+                        if (event.keyCode === 13) {
+                            $(".app_submit").click();
+                        }
+                    });
+                    $(".t1").on("keyup", function (event) {
+                        if (event.keyCode === 13) {
+                            $(".submit").click();
+                        }
+                    });
+                    $(".t4").on("keyup", function (event) {
+                        if (event.keyCode === 13) {
+                            $(".leave_submit").click();
+                        }
+                    });
+                    $('.l_report').click(function () {
+                        $('.leavereport').css({ 'display': 'block' })
+                        $('section').css({ 'display': 'none' })
+                        $.ajax({
+                            url: 'attendence.py',
+                            method:'post',
+                            data:{
+                                cond:'leave_report',
+                                t1: utype.trim(),
+                                t2: email.trim(),
+                            },
+                            success: function (data){
+                                $('.leavereport').html(data);
+                            }
+                        })
+                    })
+                    $('.mark').click(function () {
+                        $('section').css({ 'display': 'none' })
+                        $('.leavereport').css({ 'display': 'none' })
+                    })
+                    record('some');
+                }
+                $('aside h1').click(function(){
+                    $('aside h1').css({'background-color': '#89CFF3','color': 'black','box-shadow': 'none'});
+                    $(this).css({'background-color': '#0c4a69','box-shadow': '2px 2px 2px 2px','color': 'white','border-radius': '0.5rem'});
                 })
-                $('#logout').click(function(){
-                    window.location.href='index.html';
+                $('.name').html('&nbsp;<i class="fa-solid fa-user"></i> &nbsp;' + uname + '&nbsp;&nbsp;<i class="fa-solid fa-caret-down fa-sm" style="color: rgb(252, 18, 57);" id="ns"></i>');
+                $('.view').click(function () {
+                    record('Complete');
+                })
+                $('#logout').click(function () {
+                    window.location.href = 'index.html';
                     sessionStorage.removeItem('uname');
                     sessionStorage.removeItem('email');
                     sessionStorage.removeItem('utype');
                 })
-                $('.submit').click(function(){
-                    $('.show').css({'visibility':'visible'});
-                    if($('input[type="checkbox"]').prop('checked')==true && $('#date').val()!=''){
+                $('.submit').click(function () {
+                    $('.show').css({ 'visibility': 'visible' });
+                    if ($('.t1 input[type="checkbox"]').prop('checked') == true) {
                         $.ajax({
-                            method:'post',
-                            url:'attendence.py',
-                            data:{
-                                cond:'report_sub',
-                                t1:utype.trim(),
-                                t2:email.trim(),
-                                t3:$('#date').val().split('T')[0],
-                                t4:$('input[type="datetime-local"]').val(),
+                            method: 'post',
+                            url: 'attendence.py',
+                            data: {
+                                cond: 'report_sub',
+                                t1: utype.trim(),
+                                t2: email.trim(),
+                                t3: $('input[type="datetime-local"]').val().split('T')[0],
+                                t4: $('input[type="datetime-local"]').val(),
                             },
-                            success:function(data){
+                            success: function (data) {
                                 alert(data)
+                                location.reload();
                             }
                         })
                     }
-                    else{
+                    else {
                         alert("Please Check All Filed!!")
                     }
                 })
+                
+                $('.app_submit').click(function () {
+                    flag=true;
+                    fl('.t2 .from')
+                    fl('.t2 .to')
+                    fl('.t2 textarea')
+                    if($('.t2 .from').val()>$('.t2 .to').val()){
+                        flag=false;
+                        alert('From Date Can not be greater than To Date!!')
+                        return false;
+                    }
+                    if (flag) {
+                        if(confirm("Do You want to submit this record!!")){
+                            $.ajax({
+                                method: 'post',
+                                url: 'attendence.py',
+                                data: {
+                                    cond: 'leave_sub',
+                                    t1: utype.trim(),
+                                    t2: email.trim(),
+                                    t3: $('.t2 select').val(),
+                                    t4: $('.t2 .from').val(),
+                                    t5: $('.t2 .to').val(),
+                                    t6: $('.t2 textarea').val().trim(),
+                                },
+                                success: function (data) {
+                                    data=data.split('&&')
+                                    alert(data[0])
+                                    if(data[1]==0)
+                                        location.reload();
+                                }
+                            })
+                        }
+                    }
+                    else {
+                        alert("Please Check All Filed!!")
+                    }
+                })
+                $('.leave_submit').click(function () {
+                    flag=true;
+                    if($('.t4 .from').val()=='' && $('.t4 .to').val()=='' && $('.t4 select[name="Employee"]').val()==null && $('.t4 select[name="Name"]').val()==null){
+                        flag=false;
+                    }
+                    else if($('.t4 .from').val()>$('.t4 .to').val()){
+                        flag=false;
+                        alert('From Date Can not be greater than To Date!!')
+                        return false;
+                    }
+                    if (flag) {
+                        if(confirm("Do You want to search leave record!!")){
+                            allleaverecord('some');
+                        }
+                    }
+                    else {
+                        alert("Please Select Any Filed!!")
+                    }
+                })
             })
-            function record(){
+            function allleaverecord(k){
                 $.ajax({
-                    method:'post',
-                    url:'attendence.py',
-                    data:{
-                        cond:'report_run',
-                        t1:utype.trim(),
-                        t2:email.trim()
+                    method: 'post',
+                    url: 'attendence.py',
+                    data: {
+                        cond: 'leave_search',
+                        t1: $('.t4 select[name="Employee"]').val(),
+                        t2: $('.t4 select[name="Name"]').val(),
+                        t3: $('.t4 .from').val(),
+                        t4: $('.t4 .to').val(),
+                        t5:k
                     },
-                    success:function(data){
-                        $('.report').html(data);
-                        $('.report').css('border','solid 1px gray');
+                    success: function (data) {
+                        $('.report_leave').css('border','1px solid gray');
+                        $('.report_leave').html(data);
+                    }
+                });
+            }
+            function fl(iid){
+                if($(iid).val().trim()==''||$(iid).val().trim()==null)
+                    flag=false;
+            }
+            function chart(a, b, c, d) {
+                const xValues = [a, b];
+                const yValues = [c, d];
+                const barColors = ["#b91d47", "#00aba9"];
+
+                new Chart("myChart", {
+                    type: "pie",
+                    data: {
+                        labels: xValues,
+                        datasets: [{
+                            backgroundColor: barColors,
+                            data: yValues
+                        }]
+                    },
+                    options: {
+                        title: {
+                            display: true,
+                            text: "Attendence Report"
+                        }
+                    }
+                });
+            }
+            function leave_record() {
+                $.ajax({
+                    method: 'post',
+                    url: 'attendence.py',
+                    data: {
+                        cond: 'leave_request'
+                    },
+                    success: function (data) {
+                            $('.leave_req').html(data);
                     }
                 })
             }
-            function dat(){
-                let dt=new Date();
-                let dd=String(dt.getDate());
-                let yy=dt.getFullYear();
-                let mm=String(dt.getMonth());
-                let th=dt.getHours();
-                let tm=dt.getMinutes();
-                let ts=dt.getSeconds();
-                if(dd.startsWith('0',0));
-                else{
-                if(dd<10)
-                    dd="0"+dd
-                }
-                if(mm.startsWith('0',0));
-                else{
-                if(mm<10)
-                    mm="0"+mm
-                }
-                cd=yy+'-'+mm+'-'+dd+'T'+th+':'+tm;
-                $('#date').val(cd);
-                $('#date').attr('max',cd);
+            function record(k) {
+                $.ajax({
+                    method: 'post',
+                    url: 'attendence.py',
+                    data: {
+                        cond: 'report_run',
+                        t1: utype.trim(),
+                        t2: email.trim(),
+                        t3:k
+                    },
+                    success: function (data) {
+                        data = data.split('     ');
+                        $('.report').html(data[0]);
+                        $('.report').css('border', 'solid 1px gray');
+                        if (data[1] != undefined) {
+                            var j = data[1].split('&&');
+                            chart('Absent', 'Present', j[0], j[1]);
+                        }
+                    }
+                })
             }
-        </script>    
-    </body>
+            $('#date').add(function () {
+                let day = new Date();
+                let year = day.getFullYear()
+                let month = (day.getMonth() + 1).toString().padStart(2, '0');
+                let date = day.getDate().toString().padStart(2, '0');
+                fulldate = year + "-" + month + "-" + date
+
+                let hours = day.getHours().toString().padStart(2, '0');
+                let min = day.getMinutes().toString().padStart(2, '0');
+                let time = hours + ":" + min
+                let dtime = year + "-" + month + "-" + date + ' ' + hours + ":" + min
+                $('.dtime').val(dtime)
+
+                $('.date').val(fulldate)
+                $('.time').val(time)
+
+
+            })
+        </script>
+</body>
+
 </html>

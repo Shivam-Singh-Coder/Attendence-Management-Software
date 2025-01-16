@@ -1,3 +1,6 @@
+-- Administrator Login Cerenditals:
+-- Email->administrator@gmail.com
+-- Password->admin
 create table signup(
     sn int not null auto_increment,
     name varchar(200) not null,
@@ -12,6 +15,7 @@ create table signup(
     pass varchar(200),
     primary key (sn)
 );
+insert into signup(name,email,user_type,phone,pass) values('Administrator','administrator@gmail.com','Administrator','0','admin');
 create table attendence(
     sn int not null auto_increment,
     user_type varchar(200),
@@ -34,4 +38,15 @@ create table profile(
     loaction varchar(5000),
     about varchar(4500),
     primary key(sn)
+);
+create table leave_details(
+    sn int not null auto_increment,
+    user_type varchar(200),
+    email varchar(200),
+    leave_type varchar(500),
+    from_date date,
+    to_date date,
+    reason varchar(500),
+    stat varchar(200),
+    primary key (sn)
 );

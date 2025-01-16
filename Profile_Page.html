@@ -257,6 +257,9 @@
         $(document).ready(function () {
             email=sessionStorage.getItem('email');
             uname=sessionStorage.getItem('uname');
+            if(sessionStorage.getItem('utype').trim()=='Administrator'){
+                $('#contno,#UserId').removeAttr('disabled');
+            }
             $('#email').val(email);
             $('#UserId').val(uname);
             date();
@@ -270,6 +273,10 @@
                 success:function(data){
                     let jk=data.split('&&');
                     $('#contno').val(jk[0]);
+                    if(jk[2].trim()!='None')
+                        $('#UserId').val(jk[2].trim());
+                    if(jk[4].trim()!='None')
+                        $('#contno').val(jk[4].trim());
                     if(jk[5].trim()!='None')
                         $('#dob').val(jk[5].trim());
                     if(jk[6].trim()!='None')
